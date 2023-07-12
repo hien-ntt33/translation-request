@@ -14,7 +14,7 @@
     }
 
     body {
-      background-image: url("assets/img/cover-image.jpg");
+      background-image: url("assets/img/cover.jpg");
       font-family: Arial, Helvetica, sans-serif;
       font-size: 14px;
     }
@@ -25,7 +25,7 @@
       height: 420px;
       border: none;
       background-color: #808080;
-      opacity: 0.6;
+      opacity: 0.8;
       border-radius: 12px;
       padding: 50px;
       position: absolute;
@@ -40,41 +40,52 @@
       text-transform: uppercase;
       font-weight: bold;
       text-align: center;
-      color: #ffb662;
+      color: #8B0000;
       margin-bottom: 35px;
+    }
+
+    .btn {
+      border: 1px solid #777;
+      background: #8B0000;
+      color: #fff;
+      font: 14px 'Trebuchet MS';
+      padding: 8px 15px;
+      cursor: pointer;
+      -moz-border-radius: 4px;
+      -webkit-border-radius: 4px;
     }
   </style>
 </head>
 
 <header>
   <div class="header-logo">
-    <a href="#page-top"><img src="assets/img/RK-logo.png" alt="..." style="width: 200px;"/></a>
+    <a href="#page-top"><img src="assets/img/RK-logo.png" alt="..." style="width: 200px;" /></a>
   </div>
 </header>
 
 <body>
   <form>
     <div class="form-outline">
-    <p class="form-title">LOGIN</p>
-    <div>
-      <div class=”input-form email”>
-        <input type=”text” class=”input” placeholder=Email>
-      </div><br>
-      <div class=”input-form password”>
-        <input type=”password” class=”input” placeholder=Password>
-    </div><br>
-    <div class="remember-me-check">
-      <input class="form-check-input" type="checkbox" value="" id="remember-me" checked="">
-      <label class="form-check-label" for="remember-me"> Remember me </label>
-    </div>
-    <div class="forgot-pwd">
-      <a href="#!">Forgot password?</a>
-    </div><br>
-    <button type="button" class="signin-btn">Sign in</button>
-    <div class="text-center">
-      <p>Not a member? <a href="#!">Register</a></p>
-    </div>
-    </div>
+      <p class="form-title">LOGIN</p>
+      <div>
+        <div class=”input-form email”>
+          <input type=”text” class=”input” placeholder=Email>
+        </div><br>
+        <div class=”input-form password”>
+          <input type=”password” class=”input” placeholder=Password>
+        </div><br>
+        <div class="remember-me-check">
+          <input class="form-check-input" type="checkbox" value="" id="remember-me" checked="">
+          <label class="form-check-label" for="remember-me"> Remember me </label>
+        </div>
+        <div class="forgot-pwd">
+          <a href="#!">Forgot password?</a>
+        </div><br>
+        <button type="button" class="btn">Sign in</button>
+        <div class="text-center">
+          <p>Not a member? <a href="#!">Register</a></p>
+        </div>
+      </div>
   </form>
 </body>
 
