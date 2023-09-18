@@ -41,7 +41,7 @@ export default function LoginForm(props) {
             }
         }
 
-        if (emailValidate && pswdValidate) {
+        if (emailValidate() && pswdValidate()) {
             const loginMember = registeredMember?.find((item) => item.email === member.email && item.password === member.password);
             if (loginMember) {
                 navigate("/dashboard");
@@ -53,7 +53,7 @@ export default function LoginForm(props) {
     }
 
     return (
-        <div id="layoutAuthentication">
+        <div id="layoutAuthentication" className="background-hrm">
             <div id="layoutAuthentication_content">
                 <div className="container">
                     <div className="row justify-content-center">
@@ -65,7 +65,7 @@ export default function LoginForm(props) {
                                         <FloatingLabel controlId="floatingLoginEmail" label="Email address" className="mb-3">
                                             <Form.Control type="email" placeholder="name@example.com" ref={inputEmailRef} />
                                         </FloatingLabel>
-                                        <Form.Control.Feedback className="validate-message">{emailValidate}</Form.Control.Feedback>
+                                        <div className="validate-message">{emailValidate}</div>
                                     </Form.Group>
                                     <Form.Group className="form-floating mb-3" controlId="formGroupPassword">
                                     <FloatingLabel controlId="floatingLoginPswd" label="Password" className="mb-3">

@@ -48,6 +48,7 @@ export default function RegisterForm() {
             confirmPswd: inputConfirmPswdRef.current.value
         };
         const emailValidate = () => {
+            console.log(11111);
             if (member.email === '') {
                 setEmailMessage('Please enter your email!')
                 return emailValidate;
@@ -60,6 +61,7 @@ export default function RegisterForm() {
                 return true
             }
         }
+
         const pswdValidate = () => {
             if (member.password === '') {
                 setPswdMessage('Please enter your password!')
@@ -80,16 +82,15 @@ export default function RegisterForm() {
                 setConfirmPswdMessage('')
             }
         }
-        const addMember = () => {
-            if (emailValidate && pswdValidate && confirmPassword) {
+            if (emailValidate() && pswdValidate() && confirmPassword()) {
                 const newMember = [...listMember];
                 newMember.push(member);
                 setListMember(newMember)
             }
-        }
+        
     }
     return (
-        <div id="layoutAuthentication">
+        <div id="layoutAuthentication" className="background-hrm">
             <div id="layoutAuthentication_content">
                 <div className="container">
                     <div className="row justify-content-center">
