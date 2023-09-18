@@ -4,6 +4,7 @@
 
 .background-hrm{
   background-image: url("https://hrm.rikkei.vn/assets/images/login-bg.png");
+  min-height: 100vh;
 }
 
 .App-logo {
@@ -28,11 +29,6 @@
   color: white;
 }
 
-.form-layout{
-  margin: 25px;
-  padding: 25px;
-}
-
 .App-link {
   color: #61dafb;
 }
@@ -50,3 +46,6 @@
   color : red;
 }
 
+.form-padding{
+padding: 20px;
+}

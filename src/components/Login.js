@@ -58,20 +58,20 @@ export default function LoginForm(props) {
                 <div className="container">
                     <div className="row justify-content-center">
                         <div className="col-lg-5">
-                            <div className="card shadow-lg border-0 rounded-lg mt-5">
+                            <div className="card shadow-lg border-0 rounded-lg mt-5 form-padding">
                                 <h3 className="text-center font-weight-light my-4">Login</h3>
                                 <Form>
                                     <Form.Group className="form-floating mb-3" controlId="formGroupEmail">
                                         <FloatingLabel controlId="floatingLoginEmail" label="Email address" className="mb-3">
                                             <Form.Control type="email" placeholder="name@example.com" ref={inputEmailRef} />
                                         </FloatingLabel>
-                                        <div className="validate-message">{emailValidate}</div>
+                                        <div className="email validate-message">{emailValidate}</div>
                                     </Form.Group>
                                     <Form.Group className="form-floating mb-3" controlId="formGroupPassword">
                                     <FloatingLabel controlId="floatingLoginPswd" label="Password" className="mb-3">
                                             <Form.Control type="password" placeholder="Password" ref={inputPswdRef} />
                                         </FloatingLabel>
-                                        <Form.Control.Feedback className="validate-message">{pswdValidate}</Form.Control.Feedback>
+                                        <div className="pswd validate-message">{pswdValidate}</div>
                                     </Form.Group>
                                     <Button variant='danger' type='submit' onClick={handleLogin}>Login</Button>
                                 </Form>
