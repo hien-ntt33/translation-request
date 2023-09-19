@@ -3,8 +3,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { Form, Button, FloatingLabel } from 'react-bootstrap';
 import { Link, useNavigate } from "react-router-dom";
 
-export default function LoginForm(props) {
-    const { registeredMember } = props;
+export default function LoginForm({registeredMember} ){
     const navigate = useNavigate();
     const [emailValidate, setEmailMessage] = useState('');
     const [pswdValidate, setPswdMessage] = useState('');
@@ -42,9 +41,10 @@ export default function LoginForm(props) {
         }
 
         if (emailValidate() && pswdValidate()) {
+            console.log(registeredMember);
             const loginMember = registeredMember?.find((item) => item.email === member.email && item.password === member.password);
             if (loginMember) {
-                navigate("/dashboard");
+                alert('login success')
             }
             else (
                 alert('Invalid email or password!')
@@ -60,7 +60,7 @@ export default function LoginForm(props) {
                         <div className="col-lg-5">
                             <div className="card shadow-lg border-0 rounded-lg mt-5 form-padding">
                                 <h3 className="text-center font-weight-light my-4">Login</h3>
-                                <Form>
+                                <Form className="form-layout">
                                     <Form.Group className="form-floating mb-3" controlId="formGroupEmail">
                                         <FloatingLabel controlId="floatingLoginEmail" label="Email address" className="mb-3">
                                             <Form.Control type="email" placeholder="name@example.com" ref={inputEmailRef} />
@@ -71,13 +71,13 @@ export default function LoginForm(props) {
                                     <FloatingLabel controlId="floatingLoginPswd" label="Password" className="mb-3">
                                             <Form.Control type="password" placeholder="Password" ref={inputPswdRef} />
                                         </FloatingLabel>
-                                        <div className="pswd validate-message">{pswdValidate}</div>
+                                        <Form.Control.Feedback className="pswd validate-message">{pswdValidate}</Form.Control.Feedback>
                                     </Form.Group>
                                     <Button variant='danger' type='submit' onClick={handleLogin}>Login</Button>
                                 </Form>
                             </div>
                         </div>
-                        <Link as={Link} to='/register'>Need an account? Sign up!</Link>
+                        <Link as={Link} to='/register'className="login-register-link">Need an account? Sign up!</Link>
                     </div>
                 </div>
             </div>
