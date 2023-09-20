@@ -57,15 +57,6 @@ export default function RegisterForm() {
                 return true
             }
         }
-        const projectNameValidate = () => {
-            if (member.projectName === '') {
-                setProjectNameMessage('Please enter your project name!')
-            }
-            else {
-                setProjectNameMessage("");
-                return true
-            }
-        }
         const emailValidate = () => {
             if (member.email === '') {
                 setEmailMessage('Please enter your email!')
@@ -75,6 +66,15 @@ export default function RegisterForm() {
             }
             else if (emailRegex.test(member.email)) {
                 setEmailMessage("");
+                return true
+            }
+        }
+        const projectNameValidate = () => {
+            if (member.projectName === '') {
+                setProjectNameMessage('Please enter your project name!')
+            }
+            else {
+                setProjectNameMessage("");
                 return true
             }
         }
@@ -102,7 +102,7 @@ export default function RegisterForm() {
                 return true
             }
         }
-        if (usernameValidate() && projectNameValidate() && emailValidate() && pswdValidate() && confirmPassword()) {
+        if (usernameValidate() && emailValidate() && projectNameValidate() && pswdValidate() && confirmPassword()) {
             const newMember = [...listMember];
             const memberIndex = newMember.findIndex((user) => user.email === member.email)
             if (memberIndex != -1) {
@@ -159,7 +159,7 @@ export default function RegisterForm() {
                                     <Button variant='danger' onClick={() => { handleRegister() }}>Create account</Button>
                                 </Form>
                             </div>
-                            <Link as={Link} to='/login'className="login-register-link">Have an account? Go to login</Link>
+                            <Link as={Link} to='/login' className="login-register-link">Have an account? Go to login</Link>
                         </div>
                     </div>
                 </div>

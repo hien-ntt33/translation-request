@@ -3,7 +3,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { Form, Button, FloatingLabel } from 'react-bootstrap';
 import { Link, useNavigate } from "react-router-dom";
 
-export default function LoginForm({registeredMember} ){
+export default function LoginForm({registeredMember}){
     const navigate = useNavigate();
     const [emailValidate, setEmailMessage] = useState('');
     const [pswdValidate, setPswdMessage] = useState('');
@@ -41,13 +41,12 @@ export default function LoginForm({registeredMember} ){
         }
 
         if (emailValidate() && pswdValidate()) {
-            console.log(registeredMember);
             const loginMember = registeredMember?.find((item) => item.email === member.email && item.password === member.password);
-            if (loginMember) {
-                alert('login success')
+            if (loginMember = '') {
+                alert('Invalid email or password!')
             }
             else (
-                alert('Invalid email or password!')
+                alert('Login success')
             )
         }
     }
