@@ -2,7 +2,7 @@ import React, { useRef, useState } from "react";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Form, Button, FloatingLabel } from 'react-bootstrap';
 import { Link, useNavigate } from "react-router-dom";
-import LoginForm from "./Login";
+import LoginForm from '../login/Login';
 
 export default function RegisterForm() {
     const navigate = useNavigate();

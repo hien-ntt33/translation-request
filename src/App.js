@@ -1,20 +1,21 @@
-//import logo from './logo.svg';
 import './App.css';
-import LoginForm from './components/Login';
-import RegisterForm from './components/Register'
-import { BrowserRouter, Route, Routes } from 'react-router-dom'
+// Câu lệnh import để file liên kết với các function của file được export
+// import Session02Component from './lesson/components/Session02Component'
+import NavBar from './components/organisms/navbar.js/navbar';
+import { BrowserRouter } from "react-router-dom";
+import { Context } from "./context/ContextHelper";
+import RoutesUser from "./routes/user"
 
-function App() {
+function App () {
+  
   return (
-    <div className="App">
-      <BrowserRouter>
-      <Routes>
-          <Route path="/login" element={<LoginForm/>} />
-          <Route path="/register" element={<RegisterForm/>} />
-        </Routes>
+    <div>
+      <BrowserRouter basename="/">
+        <Context.Provider value="Nguyen Van E">   
+          <RoutesUser/>
+        </Context.Provider>
       </BrowserRouter>
     </div>
   );
 }
-
 export default App;

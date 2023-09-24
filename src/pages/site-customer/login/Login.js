@@ -3,7 +3,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { Form, Button, FloatingLabel } from 'react-bootstrap';
 import { Link, useNavigate } from "react-router-dom";
 
-export default function LoginForm({registeredMember}){
+export default function LoginForm({ registeredMember }) {
     const navigate = useNavigate();
     const [emailValidate, setEmailMessage] = useState('');
     const [pswdValidate, setPswdMessage] = useState('');
@@ -45,9 +45,10 @@ export default function LoginForm({registeredMember}){
             if (loginMember = '') {
                 alert('Invalid email or password!')
             }
-            else (
-                alert('Login success')
-            )
+            else {
+                alert('Login success');
+                navigate('/');
+            }
         }
     }
 
@@ -67,7 +68,7 @@ export default function LoginForm({registeredMember}){
                                         <div className="email validate-message">{emailValidate}</div>
                                     </Form.Group>
                                     <Form.Group className="form-floating mb-3" controlId="formGroupPassword">
-                                    <FloatingLabel controlId="floatingLoginPswd" label="Password" className="mb-3">
+                                        <FloatingLabel controlId="floatingLoginPswd" label="Password" className="mb-3">
                                             <Form.Control type="password" placeholder="Password" ref={inputPswdRef} />
                                         </FloatingLabel>
                                         <Form.Control.Feedback className="pswd validate-message">{pswdValidate}</Form.Control.Feedback>
@@ -76,7 +77,7 @@ export default function LoginForm({registeredMember}){
                                 </Form>
                             </div>
                         </div>
-                        <Link as={Link} to='/register'className="login-register-link">Need an account? Sign up!</Link>
+                        <Link as={Link} to='/register' className="login-register-link">Need an account? Sign up!</Link>
                     </div>
                 </div>
             </div>
