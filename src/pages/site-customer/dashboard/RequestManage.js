@@ -1,14 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import 'bootstrap/dist/css/bootstrap.min.css';
-
 import { useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux"
-
 import { Col, Container, Row, Table, Button } from "react-bootstrap";
-
-import { REQUEST } from "./../../../constants/index"
 import ConfirmDelete from './../../../components/molecules/confirm'
-
+import { fetchRequest } from "../../../redux/api/request";
+import { removeRequest } from "../../../redux/reducer/requestSlice";
 import "./../../../scss/student-management/index.scss";
 
 export default function RequestManage(props) {
@@ -22,36 +19,31 @@ export default function RequestManage(props) {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
-  // event click vào button thêm mới
+  useEffect(() => {
+    dispatch(fetchRequest());
+  }, [dispatch]);
+
+
   const handleCreateRequest = () => {
-    // xử lý chuyển trang
     navigate("add");
   };
 
-  // event click vào button xóa
   const handleRemoveRequest = (id) => {
     setIdDelete(id)
     handleShow();
 
   };
-  const handleSubmitConfirm = () => {
-    dispatch({
-      type: REQUEST.REQUEST_DELETE,
-      payload: {
-        id: idDelete
-      }
-    })
+  const handleSubmitConfirm = (id) => {
+    const removeAction = removeRequest(id);
+    dispatch(removeAction);
     setIdDelete(null)
     handleClose();
-  }
+  };
 
-  // event click vào button chỉnh sửa
   const handleUpdateRequest = (id) => {
-    // chuyển trang kèm theo id
     navigate("edit/" + id);
   };
 
-  // event click vào button chi tiết
   const handleDetailsRequest = (item) => {
     navigate("detail/" + item.id);
   };
@@ -60,7 +52,7 @@ export default function RequestManage(props) {
     <div>
       <Container>
         <Row  >
-          <Col xs={10} ><h1> Translation reuqests </h1> </Col>
+          <Col xs={10} ><h1> Translation requests </h1> </Col>
           <Col xs={2}   >
             <Button variant="primary" className="btn-create" onClick={() => {
               handleCreateRequest();
@@ -91,7 +83,7 @@ export default function RequestManage(props) {
                     <td className="tg-0lax">{item.priority}</td>
                     <td className="tg-0lax">{item.title}</td>
                     <td className="tg-0lax">{item.deadline}</td>
-                    <td className="tg-0lax">{item.confideFlag}</td>
+                    <td className="tg-0lax">{item.confidential}</td>
                     <td className="d-flex gap-2">
                       <Button variant="danger"
                         onClick={() => {

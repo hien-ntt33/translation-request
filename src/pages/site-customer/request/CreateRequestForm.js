@@ -15,6 +15,9 @@ export default function CreateRequestForm(props) {
     let { id } = useParams();
     // khởi tạo useRef
     const inputTitleRef = useRef(null);
+    const inputStatusRef = useRef(null);
+    const inputPriorityRef = useRef(null);
+    const inputConfidentialRef = useRef(null);
     const inputRequestDateRef = useRef(null);
     const inputDeadlineRef = useRef(null);
     const inputNoteRef = useRef(null);
@@ -25,8 +28,14 @@ export default function CreateRequestForm(props) {
         if (id) {
             const requestUpdate = requests.find((x) => Number(x.id) === Number(id));
             if (requestUpdate) {
-                inputNameRef.current.value = studentUpdate.name;
-                inputAgeRef.current.value = studentUpdate.age;
+                inputTitleRef.current.value = requestUpdate.title;
+                inputStatusRef.current.value = requestUpdate.status;
+                inputPriorityRef.current.value = requestUpdate.priority;
+                inputConfidentialRef.current.value = requestUpdate.confidential;
+                inputRequestDateRef.current.value = requestUpdate.requestedDate;
+                inputDeadlineRef.current.value = requestUpdate.deadline;
+                inputNoteRef.current.value = requestUpdate.note;
+                inputContentRef.current.value = requestUpdate.content;
             }
         }
     }, []);
@@ -35,9 +44,9 @@ export default function CreateRequestForm(props) {
         const request = {
             id: Number(requests.length +1),
             title: inputTitleRef.current.value,
-            status: inputTitleRef.current.value,
-            priority: inputTitleRef.current.value,
-            confidential: inputTitleRef.current.value,
+            status: inputStatusRef.current.value,
+            priority: inputPriorityRef.current.value,
+            confidential: inputConfidentialRef.current.value,
             requestedDate: inputRequestDateRef.current.value,
             deadline: inputDeadlineRef.current.value,
             note: inputNoteRef.current.value,
@@ -73,7 +82,7 @@ export default function CreateRequestForm(props) {
 
                         <Form.Group className="mb-3" controlId="formGroupName">
                             <Form.Label>Status</Form.Label>
-                            <Form.Select aria-label="Default select example">
+                            <Form.Select ref={inputStatusRef} aria-label="Default select example" >
                                 <option>New</option>
                                 <option value="1">In progress</option>
                                 <option value="2">Feedback</option>
@@ -85,7 +94,7 @@ export default function CreateRequestForm(props) {
 
                         <Form.Group className="mb-3" controlId="formGroupName">
                             <Form.Label>Priority</Form.Label>
-                            <Form.Select aria-label="Default select example">
+                            <Form.Select ref={inputPriorityRef} aria-label="Default select example">
                                 <option>Normal</option>
                                 <option value="1">Low</option>
                                 <option value="2">High</option>
@@ -104,7 +113,7 @@ export default function CreateRequestForm(props) {
                         </Form.Group>
 
                         <Form.Group className="mb-3" controlId="formGroupBirth">
-                        <Form.Check aria-label="option 1"/>
+                        <Form.Check ref={inputConfidentialRef} aria-label="option 1"/>
                             <Form.Label>Confidential</Form.Label>
                         </Form.Group>
 

@@ -42,7 +42,7 @@ export default function LoginForm({ registeredMember }) {
 
         if (emailValidate() && pswdValidate()) {
             const loginMember = registeredMember?.find((item) => item.email === member.email && item.password === member.password);
-            if (loginMember = '') {
+            if (loginMember === '') {
                 alert('Invalid email or password!')
             }
             else {

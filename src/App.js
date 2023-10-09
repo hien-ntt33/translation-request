@@ -10,11 +10,9 @@ function App () {
   
   return (
     <div>
-      <BrowserRouter basename="/">
         <Context.Provider value="Nguyen Van E">   
           <RoutesUser/>
         </Context.Provider>
-      </BrowserRouter>
     </div>
   );
 }
